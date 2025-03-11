@@ -134,7 +134,7 @@
 @push('js')
     <script>
 
-        //BOTON CARGAR MAS
+        //BOTON CARGAR mas
         // $(function(){
         //     $("div").slice(0, 10).show(); // select the first ten
         //     $("#load").click(function(e){ // click event for load more
