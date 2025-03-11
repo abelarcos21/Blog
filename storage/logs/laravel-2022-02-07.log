@@ -1,0 +1,1 @@
+[2022-02-07 05:41:15] local.ERROR: SQLSTATE[08006] [7] FATAL:  el sistema de base de datos está iniciándose (SQL: select * from "posts" where "url" = mi-tercer-postc limit 1) null 

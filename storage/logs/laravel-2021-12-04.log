@@ -1,0 +1,1 @@
+[2021-12-04 02:57:48] local.ERROR: SQLSTATE[08006] [7] FATAL:  el sistema de base de datos está iniciándose (SQL: select * from "categories") null 

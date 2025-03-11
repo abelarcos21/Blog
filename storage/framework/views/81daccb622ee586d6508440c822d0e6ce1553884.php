@@ -1,0 +1,2 @@
+<li><a href="<?php echo e(route('login')); ?>"> <?php echo e(__("Login")); ?></a></li>
+<li><a href="<?php echo e(route('register')); ?>"><?php echo e(__("Registrarme")); ?></a></li><?php /**PATH C:\laragon\www\Blog\resources\views/layouts/frontend/partial/navigations/guest.blade.php ENDPATH**/ ?>
