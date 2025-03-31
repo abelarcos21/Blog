@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
@@ -62,7 +63,7 @@ class Post extends Model
     public function setTitleAttribute($title){ //Mutador
 
         $this->attributes['title'] = $title;
-        $this->attributes['url'] = str_slug($title);
+        $this->attributes['url'] = Str::slug($title);
     }
 
     

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Category;
+use Illuminate\Support\Str;
 
 class CategoriesTableSeeder extends Seeder
 {
@@ -16,12 +17,12 @@ class CategoriesTableSeeder extends Seeder
 
         $category = new Category;
         $category->name = 'php';
-        $category->url = str_slug("php");
+        $category->url = Str::slug("php");
         $category->save();
 
         $category = new Category;
         $category->name = 'Laravel';
-        $category->url = str_slug("Laravel");
+        $category->url = Str::slug("Laravel");
         $category->save();
     }
 }

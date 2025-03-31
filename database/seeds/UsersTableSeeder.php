@@ -3,6 +3,7 @@
 use App\Role;
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class UsersTableSeeder extends Seeder
 {
@@ -17,12 +18,12 @@ class UsersTableSeeder extends Seeder
 
         $role = new Role;
         $role->name = "Admin";
-        $role->url = str_slug("Admin");
+        $role->url = Str::slug("Admin");
         $role->save();
 
         $role = new Role;
         $role->name = "Autor";
-        $role->url = str_slug("Autor");
+        $role->url = Str::slug("Autor");
         $role->save(); 
 
 

@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Str;
+use Illuminate\Support\Str;
 
 class Category extends Model
 {
@@ -31,6 +31,6 @@ class Category extends Model
     public function setNameAttribute($name){
 
         $this->attributes['name'] = $name;
-        $this->attributes['url'] = str_slug($name);
+        $this->attributes['url'] = Str::slug($name);
     }
 }

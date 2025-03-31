@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Str;
+use Illuminate\Support\Str;
 
 class Tag extends Model
 {
@@ -22,6 +22,6 @@ class Tag extends Model
     //uso de un mutador
     public function setNameAttribute($name){
         $this->attributes['name'] = $name;
-        $this->attributes['url'] = str_slug($name);
+        $this->attributes['url'] = Str::slug($name);
     }
 }
