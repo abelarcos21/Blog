@@ -40,7 +40,12 @@
                             <div class="post-info">
 
                                 <div class="left-area">
-                                    <a class="avatar" href="#"><img src="/storage/{{$post->user->image }}{{-- Storage::disk('public')->url('profile/'.$post->user->image) --}}" alt="Profile Image"></a>
+
+                                    @if ($post->user && $post->user->image)
+                                        <a class="avatar" href="#"><img src="/storage/{{ $post->user->image}}" alt="Profile Image"></a>
+                                    @else
+                                        <a class="avatar" href="#"><img src="{{ asset('images/default-user.png') }}" alt="Usuario sin imagen"></a> {{-- Una imagen por defecto --}}
+                                    @endif
                                 </div>
 
                                 <div class="middle-area">

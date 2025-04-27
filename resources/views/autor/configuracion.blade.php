@@ -35,7 +35,11 @@
                 <!-- Profile Image -->
                 <div class="box box-info">
                 <div class="box-body box-profile">
-                <img class="profile-user-img img-responsive img-circle" src="{{ asset(Auth::user()->image) }}" alt="User profile picture">
+                @if(Auth::user()->image)
+                    <img loading="lazy" class="profile-user-img img-responsive img-circle" src="{{ asset('storage/' . Auth::user()->image) }}" alt="User profile picture">
+                @else
+                    Sin foto
+                @endif
 
                 <h3 class="profile-username text-center">{{ Auth::user()->name}}</h3>
 

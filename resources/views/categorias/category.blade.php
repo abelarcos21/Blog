@@ -41,7 +41,7 @@
                                 <div class="blog-info">
 
                                     <h4 class="title"><a href="{{ route('posts.show',$post->url) }}"><b>{{ $post->title }}</b></a></h4>
-                                    <h6 class="date"> {!! str_limit($post->body, 105); !!}</h6>
+                                    <h6 class="date"> {!! Str::limit($post->body, 105); !!}</h6>
                                     <ul class="post-footer">
 
                                         <li>

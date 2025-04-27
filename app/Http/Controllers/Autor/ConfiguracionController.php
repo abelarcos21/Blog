@@ -23,38 +23,29 @@ class ConfiguracionController extends Controller
     public function updateProfile(Request $request){
 
         // dd($request->all());
-
-        $this->validate($request, [
-
+        $validated = $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'image' => 'required|image',
+            'image' => 'nullable|mimes:jpeg,png,jpg', // mejor que no sea requerido en update
             'about' => 'required'
-
         ]);
 
-        $user = User::findOrfail(Auth::id());
-        $user->name = $request->get('name');
 
-        if($request->hasFile('image')){
+        $user = User::findOrFail(Auth::id());
+        $user->name = $validated['name'];
+        $user->email = $validated['email'];
+        $user->about = $validated['about'];
 
-            if(!Storage::disk('public')->exists('perfil')){
-                Storage::disk('public')->makeDirectory('perfil');
+        if ($request->hasFile('image')) {
+            // eliminar imagen anterior si existe
+            if ($user->image && Storage::disk('public')->exists($user->image)) {
+                Storage::disk('public')->delete($user->image);
             }
-
-            if(Storage::disk('public')->exists('perfil/' . $user->image)){
-
-                Storage::disk('public')->delete('perfil/' . $user->image);
-            }
-
-            $perfil = Storage::disk('public')
-                ->putFileAs('perfil', $request->image, uniqid().str_replace(' ', '-', $request->image->getClientOriginalName()));
-            $user->image = 'storage/' . $perfil;
-
+        
+            $rutaNueva = $request->file('image')->store('perfil', 'public');
+            $user->image = $rutaNueva; // AQUÍ asignas la nueva ruta a la columna `image`
         }
-
-        $user->email = $request->get('email');
-        $user->about = $request->get('about');
+        
         $user->save();
 
         Toastr::success('Perfil actualizado correctamente', 'Success');
