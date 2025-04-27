@@ -86,7 +86,7 @@ class PostsController extends Controller
         $post->is_approved = false;
 
         $post->category_id = $request->get('category');
-        $post->category_id = str_slug($request->get('category'));
+        $post->category_id = Str::slug($request->get('category'));
         $post->save();
 
 

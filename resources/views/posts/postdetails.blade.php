@@ -50,7 +50,7 @@
 
                             </div><!-- post-info -->
 
-                            <h3 class="title"><a href="#"><b>{{ str_slug($post->title) }}</b></a></h3>
+                            <h3 class="title"><a href="#"><b>{{ Str::slug($post->title) }}</b></a></h3>
 
                             <div class="para">
 
@@ -143,7 +143,7 @@
                                 <div class="blog-info">
 
                                     <h4 class="title"><a href="{{ $randompost->url }}"><b> {{ $randompost->title }}</b></a></h4>
-                                    <h6 class="date"> {!! str_limit($post->body, 105); !!}</h6>
+                                    <h6 class="date"> {!! Str::limit($post->body, 105); !!}</h6>
                                     <ul class="post-footer">
 
                                         <li>

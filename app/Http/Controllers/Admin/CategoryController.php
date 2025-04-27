@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
 use Storage;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -36,7 +37,7 @@ class CategoryController extends Controller
         $category = new Category;
         $category->name = $request->get('name');
         
-        $category->url = str_slug($request->get('name'));
+        $category->url = Str::slug($request->get('name'));
 
         if($request->hasFile('image')){
 
@@ -76,7 +77,7 @@ class CategoryController extends Controller
 
 
         $category->name = $request->get('name');
-        $category->url = str_slug($request->get('name'));
+        $category->url = Str::slug($request->get('name'));
 
         if(isset($request->image)){  //PARA GUARDAR FOTO EN LA BD
 

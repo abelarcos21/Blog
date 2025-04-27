@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PostsController extends Controller
 {
@@ -102,7 +103,7 @@ class PostsController extends Controller
         $post->is_approved = true;
 
         $post->category_id = $request->get('category');
-        $post->category_id = str_slug($request->get('category'));
+        $post->category_id = Str::slug($request->get('category'));
         $post->save();
 
         //guardar la etiqueta
